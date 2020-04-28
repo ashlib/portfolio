@@ -22,7 +22,7 @@ function setup() {
 	doorButton = createButton("My Work");
   doorButton.mouseClicked(openDoor);
   doorButton.size(100,35);
-  doorButton.position(x + 575, y - 300);
+  doorButton.position(x + 575, y - 375);
 	doorButton.style("cursor", "pointer");
 	doorButton.style("background-color", "transparent");
 	doorButton.style("font-family", "Times New Roman");
@@ -33,7 +33,7 @@ function setup() {
 	aboutButton = createButton("About Me");
   aboutButton.mouseClicked(goToAbout);
   aboutButton.size(100,35);
-  aboutButton.position(x - 675, y - 300);
+  aboutButton.position(x - 675, y - 375);
 	aboutButton.style("cursor", "pointer");
 	aboutButton.style("background-color", "transparent");
 	aboutButton.style("font-family", "Times New Roman");
@@ -88,7 +88,7 @@ function introText() {
 	textFont(h1Font);
 	textAlign(CENTER);
 	textSize(115);
-	translate(x, y + 30);
+	translate(x, y + 15);
 	text(title, 0, 0);
 	pop();
 
@@ -97,7 +97,7 @@ function introText() {
 	textFont(h1Font);
 	textAlign(CENTER);
 	textSize(115);
-	translate(x - 390, y + 30);
+	translate(x - 390, y + 15);
 	text("A S", 0, 0);
 	pop();
 
@@ -106,7 +106,7 @@ function introText() {
 	textFont(h1Font);
 	textAlign(CENTER);
 	textSize(115);
-	translate(x + 390, y + 30);
+	translate(x + 390, y + 15);
 	text("L D", 0, 0);
 	pop();
 
@@ -115,7 +115,7 @@ function introText() {
 	textFont(pFont);
 	textAlign(CENTER);
 	textSize(35);
-	translate(x, y + 95);
+	translate(x, y + 75);
 	text("Creative Portfolio", 0, 0);
 	pop();
 }
@@ -125,12 +125,12 @@ function setDoor() {
 	fill(0);
 
 	push();
-	translate(x - 150, y + 15);
+	translate(x - 150, y);
 	rect(0, 0, 300, 450);
 	pop();
 
 	push();
-	translate(x + 150, y + 15);
+	translate(x + 150, y);
 	rect(0, 0, 300, 450);
 	pop();
 
@@ -167,7 +167,7 @@ function about() {
 	push();
 	imageMode(CENTER);
 	translate(x - 250, y);
-	image(profImage, 0, 0, 375, 450);
+	image(profImage, 0, 0, 368, 450);
 	pop();
 
 	push();
