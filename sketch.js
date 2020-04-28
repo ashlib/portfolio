@@ -6,14 +6,10 @@ var h1font;
 var pfont;
 var profImg;
 
-var font1 = “data/sf kingston light.otf”;
-var font2 = “data/bodoni italic bt.ttf”;
-var img1 = “data/bwprofile.jpeg”;
-
 function preload() {
-	h1Font = loadFont(font1);
-	pFont = loadFont(font2);
-	profImage = loadImage(img1);
+	h1Font = loadFont("sfkingstonlight.otf");
+	pFont = loadFont("bodoniitalicbt.ttf");
+	profImage = loadImage("bwprofile.jpg");
 }
 
 function setup() {
