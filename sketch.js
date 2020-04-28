@@ -22,7 +22,7 @@ function setup() {
 	doorButton = createButton("My Work");
   doorButton.mouseClicked(openDoor);
   doorButton.size(100,35);
-  doorButton.position(x + 575, y - 375);
+  doorButton.position(x + 575, y - 325);
 	doorButton.style("cursor", "pointer");
 	doorButton.style("background-color", "transparent");
 	doorButton.style("font-family", "Times New Roman");
@@ -33,7 +33,7 @@ function setup() {
 	aboutButton = createButton("About Me");
   aboutButton.mouseClicked(goToAbout);
   aboutButton.size(100,35);
-  aboutButton.position(x - 675, y - 375);
+  aboutButton.position(x - 675, y - 325);
 	aboutButton.style("cursor", "pointer");
 	aboutButton.style("background-color", "transparent");
 	aboutButton.style("font-family", "Times New Roman");
@@ -88,7 +88,7 @@ function introText() {
 	textFont(h1Font);
 	textAlign(CENTER);
 	textSize(115);
-	translate(x, y + 15);
+	translate(x, y);
 	text(title, 0, 0);
 	pop();
 
@@ -97,7 +97,7 @@ function introText() {
 	textFont(h1Font);
 	textAlign(CENTER);
 	textSize(115);
-	translate(x - 390, y + 15);
+	translate(x - 375, y);
 	text("A S", 0, 0);
 	pop();
 
@@ -106,7 +106,7 @@ function introText() {
 	textFont(h1Font);
 	textAlign(CENTER);
 	textSize(115);
-	translate(x + 390, y + 15);
+	translate(x + 375, y);
 	text("L D", 0, 0);
 	pop();
 
