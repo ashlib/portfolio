@@ -88,7 +88,7 @@ function introText() {
 	textFont(h1Font);
 	textAlign(CENTER);
 	textSize(115);
-	translate(x, y);
+	translate(x, y + 25);
 	text(title, 0, 0);
 	pop();
 
@@ -97,7 +97,7 @@ function introText() {
 	textFont(h1Font);
 	textAlign(CENTER);
 	textSize(115);
-	translate(x - 375, y);
+	translate(x - 375, y + 25);
 	text("A S", 0, 0);
 	pop();
 
@@ -106,7 +106,7 @@ function introText() {
 	textFont(h1Font);
 	textAlign(CENTER);
 	textSize(115);
-	translate(x + 375, y);
+	translate(x + 375, y + 25);
 	text("L D", 0, 0);
 	pop();
 
@@ -115,7 +115,7 @@ function introText() {
 	textFont(pFont);
 	textAlign(CENTER);
 	textSize(35);
-	translate(x, y + 75);
+	translate(x, y + 90);
 	text("Creative Portfolio", 0, 0);
 	pop();
 }
@@ -125,12 +125,12 @@ function setDoor() {
 	fill(0);
 
 	push();
-	translate(x - 150, y);
+	translate(x - 150, y + 15);
 	rect(0, 0, 300, 450);
 	pop();
 
 	push();
-	translate(x + 150, y);
+	translate(x + 150, y + 15);
 	rect(0, 0, 300, 450);
 	pop();
 
