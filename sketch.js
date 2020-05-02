@@ -1,10 +1,10 @@
-state = 0;
+state = 3;
 
 var openX = 0;
 var title = "A S H L I  B Y F I E L D";
-var h1font;
-var pfont;
-var profImg;
+// var h1font;
+// var pfont;
+// var profImage;
 
 function preload() {
 	h1Font = loadFont("sfkingstonlight.otf");
@@ -41,6 +41,17 @@ function setup() {
 	aboutButton.style("font-size", "20px");
 	aboutButton.style("border", "none");
 	}
+	// workButton = createButton("My Work");
+	// workButton.mouseClicked(openDoor);
+	// workButton.size(100,35);
+	// workButton.position(x + 575, y - 325);
+	// workButton.style("cursor", "pointer");
+	// workButton.style("background-color", "transparent");
+	// workButton.style("font-family", "Times New Roman");
+	// workButton.style("color", "black");
+	// workButton.style("font-size", "20px");
+	// doorButton.style("border", "none");
+
 }
 
 function draw() {
@@ -63,7 +74,10 @@ function draw() {
 
 	if (state==3){
 		background(255);
-		shelfList();
+		shelfOne();
+		shelfTwo();
+		shelfThree();
+		shelfFour();
 	}
 
 	if (state==4){
@@ -149,7 +163,7 @@ function openDoor() {
 	pop();
 	openX = openX + 7;
 
-	if (openX==625) {
+	if (openX>=625) {
 		state = 3;
 	}
 }
@@ -179,9 +193,162 @@ function about() {
 	textLeading(38);
 	text("———————————— \nHi, my name is Ashli and I am a creator. \nCurrently an NYU student studying \nIntegrated Digital Media, \nI am cultivaing skills in coding, design, \nand illustration. On this portfolio \nsite, made by yours truly, you will find the \nwork I've done both before and during \nmy studies. It is my hope that you will not only \nsee my talent, but my growth. \n————————————", 0, 0);
 	pop();
+
+
 }
 
-function shelfList() {
+function shelfOne() {
+	stroke(0);
+	strokeWeight(5);
+
+	rectMode(CENTER);
+
+	push();
+	line(width, y, -width, y);
+	pop();
+
+	push();
+	fill(255);
+	translate(x - 725, y - 150);
+	rect(0, 0, 65, 300);
+	pop();
+
+	push();
+	fill(255);
+	translate(x - 655, y - 125);
+	rect(0, 0, 75, 250);
+	pop();
+
+	push();
+	fill(255);
+	translate(x - 590, y - 162);
+	rect(0, 0, 60, 325);
+	pop();
+
+	push();
+	fill(255);
+	translate(x - 527, y - 150);
+	rect(0, 0, 65, 300);
+	pop();
+
+	push();
+	fill(255);
+	translate(x - 473, y - 162);
+	rect(0, 0, 45, 325);
+	pop();
+
+	push();
+	fill(255);
+	translate(x - 415, y - 170);
+	rect(0, 0, 75, 340);
+	pop();
+
+	push();
+	fill(255);
+	translate(x - 335, y - 150);
+	rect(0, 0, 85, 300);
+	pop();
+
+	push();
+	fill(255);
+	translate(x - 250, y - 150);
+	rect(0, 0, 85, 300);
+	pop();
+
+	push();
+	fill(255);
+	translate(x - 165, y - 125);
+	rect(0, 0, 85, 250);
+	pop();
+
+	push();
+	fill(255);
+	translate(x - 100, y - 162);
+	rect(0, 0, 50, 325);
+	pop();
+
+	push();
+	fill(255);
+	translate(x - 32, y - 150);
+	rect(0, 0, 85, 300);
+	pop();
+
+	push();
+	fill(255);
+	translate(x + 41, y - 125);
+	rect(0, 0, 60, 250);
+	pop();
+
+	push();
+	fill(255);
+	translate(x + 127, y - 150);
+	rect(0, 0, 110, 300);
+	pop();
+
+	push();
+	fill(255);
+	translate(x + 223, y - 157);
+	rect(0, 0, 80, 315);
+	pop();
+
+	push();
+	fill(255);
+	translate(x + 300, y - 162);
+	rect(0, 0, 85, 325);
+	pop();
+
+	push();
+	fill(255);
+	translate(x + 365, y - 168);
+	rect(0, 0, 45, 335);
+	pop();
+
+	push();
+	fill(255);
+	translate(x + 443, y - 150);
+	rect(0, 0, 110, 300);
+	pop();
+
+	push();
+	fill(255);
+	translate(x + 533, y - 163);
+	rect(0, 0, 70, 325);
+	pop();
+
+	push();
+	fill(255);
+	translate(x + 593, y - 138);
+	rect(0, 0, 50, 275);
+	pop();
+
+	push();
+	fill(255);
+	translate(x + 668, y - 125);
+	rect(0, 0, 100, 250);
+	pop();
+
+	push();
+	fill(255);
+	translate(x + 743, y - 155);
+	rect(0, 0, 50, 310);
+	pop();
+}
+
+function shelfTwo() {
+	push();
+	translate(0, y + 5);
+	shelfOne();
+	pop();
+}
+
+function shelfThree() {
+	push();
+	translate(0, y + 450);
+	shelfOne();
+	pop();
+}
+
+function shelfFour() {
 }
 
 function catalogCard() {
@@ -195,11 +362,10 @@ function popUpBook() {
 
 function goToAbout() {
 	state = 2;
-	doorButton.remove();
 	aboutButton.remove();
 }
 
-function goToWork() {
-	state = 3;
-	workButton.remove();
-}
+// function goToWork() {
+// 	state = 3;
+// 	workButton.remove();
+// }
