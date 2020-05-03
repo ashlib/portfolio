@@ -2,9 +2,6 @@ state = 3;
 
 var openX = 0;
 var title = "A S H L I  B Y F I E L D";
-// var h1font;
-// var pfont;
-// var profImage;
 
 function preload() {
 	h1Font = loadFont("sfkingstonlight.otf");
@@ -51,7 +48,19 @@ function setup() {
 	// workButton.style("color", "black");
 	// workButton.style("font-size", "20px");
 	// doorButton.style("border", "none");
-
+	if (state==3) {
+	codeButton = createButton("CODING");
+  codeButton.mouseClicked(openDoor);
+  codeButton.size(100,35);
+  codeButton.position(x + 575, y - 325);
+	codeButton.style("cursor", "pointer");
+	codeButton.style("background-color", "transparent");
+	codeButton.style("font-family", "Times New Roman");
+	codeButton.style("color", "black");
+	codeButton.style("font-size", "20px");
+	codeButton.style("border", "solid");
+	codeButton.style("border", "solid");
+	}
 }
 
 function draw() {
@@ -74,6 +83,7 @@ function draw() {
 
 	if (state==3){
 		background(255);
+		shelfBackground();
 		shelfOne();
 		shelfTwo();
 		shelfThree();
@@ -93,6 +103,77 @@ function draw() {
 	if (state==6){
 		background(255);
 		popUpBook();
+	}
+}
+
+function about() {
+	push();
+	fill(0);
+	textFont(pFont);
+	textAlign(CENTER);
+	textSize(45);
+	translate(x + 175, y - 194);
+	text("About the Creator", 0, 0);
+	pop();
+
+	push();
+	imageMode(CENTER);
+	translate(x - 250, y);
+	image(profImage, 0, 0, 368, 450);
+	pop();
+
+	push();
+	fill(0);
+	textFont("Times New Roman");
+	textAlign(LEFT);
+	textSize(24);
+	translate(x, y - 150);
+	textLeading(38);
+	text("———————————— \nHi, my name is Ashli and I am a creator. \nCurrently an NYU student studying \nIntegrated Digital Media, \nI am cultivaing skills in coding, design, \nand illustration. On this portfolio \nsite, made by yours truly, you will find the \nwork I've done both before and during \nmy studies. It is my hope that you will not only \nsee my talent, but my growth. \n————————————", 0, 0);
+	pop();
+}
+
+function setDoor() {
+	rectMode(CENTER);
+	fill(0);
+
+	push();
+	translate(x - 150, y + 15);
+	rect(0, 0, 300, 450);
+	pop();
+
+	push();
+	translate(x + 150, y + 15);
+	rect(0, 0, 300, 450);
+	pop();
+}
+
+function openDoor() {
+	state = 1;
+	doorButton.remove();
+	aboutButton.remove();
+
+	push();
+	noStroke();
+	fill(255);
+	translate(x,y);
+	rect(0, 0, openX, 550);
+	pop();
+	openX = openX + 7;
+
+	if (openX>=625) {
+		push();
+		fill(0);
+		textFont(pFont);
+		textAlign(CENTER);
+		textSize(100);
+		translate(x, y + 25);
+		text("WELCOME", 0, 0);
+		pop();
+	}
+
+	if (openX>=1250) {
+		state = 3;
 	}
 }
 
@@ -134,67 +215,27 @@ function introText() {
 	pop();
 }
 
-function setDoor() {
-	rectMode(CENTER);
-	fill(0);
-
+function shelfBackground() {
 	push();
-	translate(x - 150, y + 15);
-	rect(0, 0, 300, 450);
+	noStroke();
+	fill(44, 100, 66);
+	translate(x, 0);
+	rect(0, 0, width, y);
 	pop();
-
-	push();
-	translate(x + 150, y + 15);
-	rect(0, 0, 300, 450);
-	pop();
-
-}
-
-function openDoor() {
-	state = 1;
-	doorButton.remove();
-	aboutButton.remove();
 
 	push();
 	noStroke();
-	fill(255);
-	translate(x,y);
-	rect(0, 0, openX, 550);
-	pop();
-	openX = openX + 7;
-
-	if (openX>=625) {
-		state = 3;
-	}
-}
-
-function about() {
-	push();
-	fill(0);
-	textFont(pFont);
-	textAlign(CENTER);
-	textSize(45);
-	translate(x + 175, y - 194);
-	text("About the Creator", 0, 0);
+	fill(165, 122, 150);
+	translate(x, y);
+	rect(0, 0, width, y);
 	pop();
 
 	push();
-	imageMode(CENTER);
-	translate(x - 250, y);
-	image(profImage, 0, 0, 368, 450);
+	noStroke();
+	fill(86, 100, 137);
+	translate(x, y + 470);
+	rect(0, 0, width, y);
 	pop();
-
-	push();
-	fill(0);
-	textFont("Times New Roman");
-	textAlign(LEFT);
-	textSize(24);
-	translate(x, y - 150);
-	textLeading(38);
-	text("———————————— \nHi, my name is Ashli and I am a creator. \nCurrently an NYU student studying \nIntegrated Digital Media, \nI am cultivaing skills in coding, design, \nand illustration. On this portfolio \nsite, made by yours truly, you will find the \nwork I've done both before and during \nmy studies. It is my hope that you will not only \nsee my talent, but my growth. \n————————————", 0, 0);
-	pop();
-
-
 }
 
 function shelfOne() {
@@ -331,6 +372,13 @@ function shelfOne() {
 	fill(255);
 	translate(x + 743, y - 155);
 	rect(0, 0, 50, 310);
+	pop();
+
+	push();
+	noStroke();
+	fill(255, 100);
+	translate(x, y);
+	rect(0, 0, width, height);
 	pop();
 }
 
