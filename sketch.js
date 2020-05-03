@@ -1,4 +1,4 @@
-state = 3;
+state = 0;
 
 var openX = 0;
 var title = "A S H L I  B Y F I E L D";
@@ -15,52 +15,53 @@ function setup() {
 	x = width/2;
 	y = height/2;
 
-	if (state==0) {
-	doorButton = createButton("My Work");
-  doorButton.mouseClicked(openDoor);
-  doorButton.size(100,35);
-  doorButton.position(x + 575, y - 325);
-	doorButton.style("cursor", "pointer");
-	doorButton.style("background-color", "transparent");
-	doorButton.style("font-family", "Times New Roman");
-	doorButton.style("color", "black");
-	doorButton.style("font-size", "20px");
-	doorButton.style("border", "none");
+		doorButton = createButton("My Work");
+		doorButton.mouseClicked(openDoor);
+		doorButton.size(100,35);
+		doorButton.position(x + 575, y - 325);
+		doorButton.style("cursor", "pointer");
+		doorButton.style("background-color", "transparent");
+		doorButton.style("font-family", "Times New Roman");
+		doorButton.style("color", "black");
+		doorButton.style("font-size", "20px");
+		doorButton.style("border", "none");
 
-	aboutButton = createButton("About Me");
-  aboutButton.mouseClicked(goToAbout);
-  aboutButton.size(100,35);
-  aboutButton.position(x - 675, y - 325);
-	aboutButton.style("cursor", "pointer");
-	aboutButton.style("background-color", "transparent");
-	aboutButton.style("font-family", "Times New Roman");
-	aboutButton.style("color", "black");
-	aboutButton.style("font-size", "20px");
-	aboutButton.style("border", "none");
-	}
-	// workButton = createButton("My Work");
-	// workButton.mouseClicked(openDoor);
-	// workButton.size(100,35);
-	// workButton.position(x + 575, y - 325);
-	// workButton.style("cursor", "pointer");
-	// workButton.style("background-color", "transparent");
-	// workButton.style("font-family", "Times New Roman");
-	// workButton.style("color", "black");
-	// workButton.style("font-size", "20px");
-	// doorButton.style("border", "none");
-	if (state==3) {
-	codeButton = createButton("CODING");
-  codeButton.mouseClicked(openDoor);
-  codeButton.size(100,35);
-  codeButton.position(x + 575, y - 325);
-	codeButton.style("cursor", "pointer");
-	codeButton.style("background-color", "transparent");
-	codeButton.style("font-family", "Times New Roman");
-	codeButton.style("color", "black");
-	codeButton.style("font-size", "20px");
-	codeButton.style("border", "solid");
-	codeButton.style("border", "solid");
-	}
+		aboutButton = createButton("About Me");
+		aboutButton.mouseClicked(goToAbout);
+		aboutButton.size(100,35);
+		aboutButton.position(x - 675, y - 325);
+		aboutButton.style("cursor", "pointer");
+		aboutButton.style("background-color", "transparent");
+		aboutButton.style("font-family", "Times New Roman");
+		aboutButton.style("color", "black");
+		aboutButton.style("font-size", "20px");
+		aboutButton.style("border", "none");
+
+		codeButton = createButton("CODING");
+		codeButton.mouseClicked(showShelfOne);
+		codeButton.size(width, y);
+		codeButton.position(0, 0);
+		codeButton.style("cursor", "pointer");
+		codeButton.style("background-color", "black");
+		codeButton.style("opacity", ".25");
+		codeButton.style("font-family", "Times New Roman");
+		codeButton.style("color", "white");
+		codeButton.style("font-size", "20px");
+		codeButton.style("border", "solid");
+		codeButton.style("border-color", "black");
+
+		designButton = createButton("GRAPHIC DESIGN & ILLUSTRATION");
+		designButton.mouseClicked(showShelfTwo);
+		designButton.size(width, y);
+		designButton.position(0, 345);
+		designButton.style("cursor", "pointer");
+		designButton.style("background-color", "black");
+		designButton.style("opacity", ".25");
+		designButton.style("font-family", "Times New Roman");
+		designButton.style("color", "white");
+		designButton.style("font-size", "20px");
+		designButton.style("border", "solid");
+		designButton.style("border-color", "black");
 }
 
 function draw() {
@@ -68,17 +69,24 @@ function draw() {
 		background(255);
 		setDoor();
 		introText();
+		codeButton.hide();
+		designButton.hide();
 	}
 
 	if (state==1){
 		background(255);
 		setDoor();
 		openDoor();
+		codeButton.hide();
+		designButton.hide();
 	}
 
 	if (state==2){
 		background(255);
 		about();
+		aboutButton.hide();
+		codeButton.hide();
+		designButton.hide();
 	}
 
 	if (state==3){
@@ -86,8 +94,6 @@ function draw() {
 		shelfBackground();
 		shelfOne();
 		shelfTwo();
-		shelfThree();
-		shelfFour();
 	}
 
 	if (state==4){
@@ -150,8 +156,8 @@ function setDoor() {
 
 function openDoor() {
 	state = 1;
-	doorButton.remove();
-	aboutButton.remove();
+	doorButton.hide();
+	aboutButton.hide();
 
 	push();
 	noStroke();
@@ -166,7 +172,7 @@ function openDoor() {
 		fill(0);
 		textFont(pFont);
 		textAlign(CENTER);
-		textSize(100);
+		textSize(75);
 		translate(x, y + 25);
 		text("WELCOME", 0, 0);
 		pop();
@@ -243,10 +249,6 @@ function shelfOne() {
 	strokeWeight(5);
 
 	rectMode(CENTER);
-
-	push();
-	line(width, y, -width, y);
-	pop();
 
 	push();
 	fill(255);
@@ -375,11 +377,10 @@ function shelfOne() {
 	pop();
 
 	push();
-	noStroke();
-	fill(255, 100);
-	translate(x, y);
-	rect(0, 0, width, height);
+	line(width, y, -width, y);
 	pop();
+
+	codeButton.show();
 }
 
 function shelfTwo() {
@@ -387,16 +388,25 @@ function shelfTwo() {
 	translate(0, y + 5);
 	shelfOne();
 	pop();
-}
 
-function shelfThree() {
 	push();
-	translate(0, y + 450);
-	shelfOne();
+	stroke(0);
+	strokeWeight(5);
+	translate(0, y + 500);
+	line(width, y, -width, y);
 	pop();
+
+	designButton.show();
 }
 
-function shelfFour() {
+function showShelfOne() {
+	codeButton.hide();
+	designButton.show();
+}
+
+function showShelfTwo() {
+	codeButton.show();
+	designButton.hide();
 }
 
 function catalogCard() {
@@ -410,10 +420,4 @@ function popUpBook() {
 
 function goToAbout() {
 	state = 2;
-	aboutButton.remove();
 }
-
-// function goToWork() {
-// 	state = 3;
-// 	workButton.remove();
-// }
