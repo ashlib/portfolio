@@ -1,4 +1,4 @@
-state = 0;
+state = 3;
 
 var openX = 0;
 var title = "A S H L I  B Y F I E L D";
@@ -10,11 +10,12 @@ function preload() {
 }
 
 function setup() {
-	createCanvas(windowWidth, windowHeight);
+	createCanvas(window.innerWidth, window.innerHeight);
 
 	x = width/2;
 	y = height/2;
 
+	if (state==0) {
 		doorButton = createButton("My Work");
 		doorButton.mouseClicked(openDoor);
 		doorButton.size(100,35);
@@ -36,79 +37,44 @@ function setup() {
 		aboutButton.style("color", "black");
 		aboutButton.style("font-size", "20px");
 		aboutButton.style("border", "none");
-
-		codeButton = createButton("CODING");
-		codeButton.mouseClicked(showShelfOne);
-		codeButton.size(width, y);
-		codeButton.position(0, 0);
-		codeButton.style("cursor", "pointer");
-		codeButton.style("background-color", "black");
-		codeButton.style("opacity", ".25");
-		codeButton.style("font-family", "Times New Roman");
-		codeButton.style("color", "white");
-		codeButton.style("font-size", "20px");
-		codeButton.style("border", "solid");
-		codeButton.style("border-color", "black");
-
-		designButton = createButton("GRAPHIC DESIGN & ILLUSTRATION");
-		designButton.mouseClicked(showShelfTwo);
-		designButton.size(width, y);
-		designButton.position(0, 345);
-		designButton.style("cursor", "pointer");
-		designButton.style("background-color", "black");
-		designButton.style("opacity", ".25");
-		designButton.style("font-family", "Times New Roman");
-		designButton.style("color", "white");
-		designButton.style("font-size", "20px");
-		designButton.style("border", "solid");
-		designButton.style("border-color", "black");
+	}
 }
 
 function draw() {
+
 	if (state==0){
 		background(255);
 		setDoor();
 		introText();
-		codeButton.hide();
-		designButton.hide();
 	}
 
 	if (state==1){
 		background(255);
 		setDoor();
 		openDoor();
-		codeButton.hide();
-		designButton.hide();
 	}
 
 	if (state==2){
 		background(255);
 		about();
 		aboutButton.hide();
-		codeButton.hide();
-		designButton.hide();
 	}
 
 	if (state==3){
+		noLoop();
 		background(255);
 		shelfBackground();
 		shelfOne();
 		shelfTwo();
+		shelfButtons();
 	}
 
-	if (state==4){
+	if (state==4) {
 		background(255);
-		catalogCards();
-	}
-
-	if (state==5){
-		background(255);
-		expandedShelf();
-	}
-
-	if (state==6){
-		background(255);
-		popUpBook();
+		shelfOne();
+		shelfTwo();
+		shelfButtons();
+		popUp();
 	}
 }
 
@@ -376,11 +342,23 @@ function shelfOne() {
 	rect(0, 0, 50, 310);
 	pop();
 
+	proj1 = createButton("");
+	proj1.mouseClicked(popUp);
+	proj1.size(60, 325);
+	proj1.position(x - 620, y - 325);
+	proj1.style("cursor", "pointer");
+	proj1.style("background-color", "black");
+	proj1.style("font-family", "Times New Roman");
+	proj1.style("color", "white");
+	proj1.style("font-size", "20px");
+	proj1.style("border", "solid");
+	proj1.style("border-color", "white");
+	proj1.style("border-width", "3.5px");
+
 	push();
+	strokeWeight(5);
 	line(width, y, -width, y);
 	pop();
-
-	codeButton.show();
 }
 
 function shelfTwo() {
@@ -395,29 +373,60 @@ function shelfTwo() {
 	translate(0, y + 500);
 	line(width, y, -width, y);
 	pop();
-
-	designButton.show();
 }
 
+function shelfButtons() {
+		graphButton = createButton("GRAPHIC DESIGN");
+		graphButton.mouseClicked(showShelfOne);
+		graphButton.size(width, y);
+		graphButton.position(0, 0);
+		graphButton.style("cursor", "pointer");
+		graphButton.style("background-color", "black");
+		graphButton.style("opacity", ".25");
+		graphButton.style("font-family", "Times New Roman");
+		graphButton.style("color", "white");
+		graphButton.style("font-size", "20px");
+		graphButton.style("border", "solid");
+		graphButton.style("border-color", "black");
+
+		illusButton = createButton("DIGITAL ILLUSTRATION");
+		illusButton.mouseClicked(showShelfTwo);
+		illusButton.size(width, y);
+		illusButton.position(0, 345);
+		illusButton.style("cursor", "pointer");
+		illusButton.style("background-color", "black");
+		illusButton.style("opacity", ".25");
+		illusButton.style("font-family", "Times New Roman");
+		illusButton.style("color", "white");
+		illusButton.style("font-size", "20px");
+		illusButton.style("border", "solid");
+		illusButton.style("border-color", "black");
+	}
+
 function showShelfOne() {
-	codeButton.hide();
-	designButton.show();
+	graphButton.hide();
+	illusButton.show();
 }
 
 function showShelfTwo() {
-	codeButton.show();
-	designButton.hide();
+	graphButton.show();
+	illusButton.hide();
 }
 
-function catalogCard() {
-}
+function popUp() {
+	state = 4;
 
-function expandedShelf() {
-}
-
-function popUpBook() {
+	push();
+	fill(255);
+	translate(x, y);
+	rect(0, 0, 500, 500);
+	pop();
 }
 
 function goToAbout() {
 	state = 2;
+}
+
+function windowResized() {
+   resizeCanvas(windowWidth, windowHeight);
 }
