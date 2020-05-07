@@ -1,4 +1,4 @@
-state = 3;
+state = 0;
 
 var openX = 0;
 var title = "A S H L I  B Y F I E L D";
@@ -428,5 +428,5 @@ function goToAbout() {
 }
 
 function windowResized() {
-   resizeCanvas(windowWidth, windowHeight);
+   resizeCanvas(window.innerWidth, window.innerHeight);
 }
