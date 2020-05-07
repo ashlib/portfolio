@@ -1,4 +1,4 @@
-state = 4;
+state = 0;
 
 var openX = 0;
 var title = "A S H L I  B Y F I E L D";
@@ -7,6 +7,8 @@ function preload() {
 	h1Font = loadFont("sfkingstonlight.otf");
 	pFont = loadFont("bodoniitalicbt.ttf");
 	profImage = loadImage("bwprofile.jpg");
+
+
 }
 
 function setup() {
@@ -69,7 +71,7 @@ function draw() {
 		shelfTwo();
 
 		illusButton = createButton("DIGITAL ILLUSTRATION");
-		illusButton.mouseClicked(expandShelfTOne);
+		illusButton.mouseClicked(expandShelfOne);
 		illusButton.size(width, y);
 		illusButton.position(0, 0);
 		illusButton.style("cursor", "pointer");
@@ -93,93 +95,23 @@ function draw() {
 		graphButton.style("font-size", "20px");
 		graphButton.style("border", "solid");
 		graphButton.style("border-color", "black");
+
+		backButton = createButton("⇦");
+		backButton.mouseClicked(goBack);
+		backButton.size(35,35);
+		backButton.position(x - 670, y - 300);
+		backButton.style("cursor", "pointer");
+		backButton.style("background-color", "black");
+		backButton.style("font-family", "Times New Roman");
+		backButton.style("color", "white");
+		backButton.style("font-size", "20px");
+		backButton.style("border", "none");
 	}
 
 	if (state==4) {
-		noLoop();
-		expandShelfOne();
-
-		proj1 = createButton("");
-		proj1.mouseClicked(openPopUp);
-		proj1.size(65, 300);
-		proj1.position(x - 628, y - 300);
-		proj1.style("cursor", "pointer");
-		proj1.style("background-color", "black");
-		proj1.style("font-family", "Times New Roman");
-		proj1.style("color", "white");
-		proj1.style("font-size", "20px");
-		proj1.style("border", "none");
-
-		proj2 = createButton("");
-		proj2.mouseClicked(openPopUp);
-		proj2.size(85, 285);
-		proj2.position(x - 412, y + 40);
-		proj2.style("cursor", "pointer");
-		proj2.style("background-color", "black");
-		proj2.style("font-family", "Times New Roman");
-		proj2.style("color", "white");
-		proj2.style("font-size", "20px");
-		proj2.style("border", "none");
-
-		proj3 = createButton("");
-		proj3.mouseClicked(openPopUp);
-		proj3.size(70, 310);
-		proj3.position(x + 472, y - 310);
-		proj3.style("cursor", "pointer");
-		proj3.style("background-color", "black");
-		proj3.style("font-family", "Times New Roman");
-		proj3.style("color", "white");
-		proj3.style("font-size", "20px");
-		proj3.style("border", "none");
-
-		proj4 = createButton("");
-		proj4.mouseClicked(openPopUp);
-		proj4.size(70, 310);
-		proj4.position(x + 472, y - 310);
-		proj4.style("cursor", "pointer");
-		proj4.style("background-color", "black");
-		proj4.style("font-family", "Times New Roman");
-		proj4.style("color", "white");
-		proj4.style("font-size", "20px");
-		proj4.style("border", "none");
 	}
 
 	if (state==5) {
-		noLoop();
-		expandShelfTwo();
-
-		proj1 = createButton("");
-		proj1.mouseClicked(openPopUp);
-		proj1.size(65, 300);
-		proj1.position(x - 628, y - 300);
-		proj1.style("cursor", "pointer");
-		proj1.style("background-color", "black");
-		proj1.style("font-family", "Times New Roman");
-		proj1.style("color", "white");
-		proj1.style("font-size", "20px");
-		proj1.style("border", "none");
-
-		proj2 = createButton("");
-		proj2.mouseClicked(openPopUp);
-		proj2.size(85, 285);
-		proj2.position(x - 412, y + 40);
-		proj2.style("cursor", "pointer");
-		proj2.style("background-color", "black");
-		proj2.style("font-family", "Times New Roman");
-		proj2.style("color", "white");
-		proj2.style("font-size", "20px");
-		proj2.style("border", "none");
-
-		proj3 = createButton("");
-		proj3.mouseClicked(openPopUp);
-		proj3.size(70, 310);
-		proj3.position(x + 472, y - 310);
-		proj3.style("cursor", "pointer");
-		proj3.style("background-color", "black");
-		proj3.style("font-family", "Times New Roman");
-		proj3.style("color", "white");
-		proj3.style("font-size", "20px");
-		proj3.style("border", "none");
 	}
 }
 
@@ -443,10 +375,10 @@ function shelfTwo() {
 function expandShelfOne() {
 	state = 4;
 
-	background(165, 122, 150);
+	background(44, 100, 66);
 
-	// graphButton.hide();
-	// illusButton.hide();
+	graphButton.hide();
+	illusButton.hide();
 
 	push();
 	shelfOne();
@@ -456,13 +388,70 @@ function expandShelfOne() {
 	translate(0, y + 5);
 	shelfOne();
 	pop();
+
+	proj1 = createButton("");
+		proj1.mouseClicked(openPopUp1);
+		proj1.size(65, 300);
+		proj1.position(x - 628, y - 300);
+		proj1.style("cursor", "pointer");
+		proj1.style("background-color", "black");
+		proj1.style("font-family", "Times New Roman");
+		proj1.style("color", "white");
+		proj1.style("font-size", "20px");
+		proj1.style("border", "none");
+
+		proj2 = createButton("");
+		proj2.mouseClicked(openPopUp2);
+		proj2.size(85, 285);
+		proj2.position(x - 412, y + 40);
+		proj2.style("cursor", "pointer");
+		proj2.style("background-color", "black");
+		proj2.style("font-family", "Times New Roman");
+		proj2.style("color", "white");
+		proj2.style("font-size", "20px");
+		proj2.style("border", "none");
+
+		proj3 = createButton("");
+		proj3.mouseClicked(openPopUp3);
+		proj3.size(70, 310);
+		proj3.position(x + 472, y - 310);
+		proj3.style("cursor", "pointer");
+		proj3.style("background-color", "black");
+		proj3.style("font-family", "Times New Roman");
+		proj3.style("color", "white");
+		proj3.style("font-size", "20px");
+		proj3.style("border", "none");
+
+		proj4 = createButton("");
+		proj4.mouseClicked(openPopUp4);
+		proj4.size(45, 315);
+		proj4.position(x + 346, y + 10);
+		proj4.style("cursor", "pointer");
+		proj4.style("background-color", "black");
+		proj4.style("font-family", "Times New Roman");
+		proj4.style("color", "white");
+		proj4.style("font-size", "20px");
+		proj4.style("border", "none");
+
+		backButton = createButton("⇦");
+		backButton.mouseClicked(goBack);
+		backButton.size(35,35);
+		backButton.position(x - 670, y - 300);
+		backButton.style("cursor", "pointer");
+		backButton.style("background-color", "black");
+		backButton.style("font-family", "Times New Roman");
+		backButton.style("color", "white");
+		backButton.style("font-size", "20px");
+		backButton.style("border", "none");
 }
 
 function expandShelfTwo() {
-	// illusButton.hide();
-	// graphButton.hide();
+	state = 5;
 
-	background(44, 100, 66);
+	illusButton.hide();
+	graphButton.hide();
+
+	background(165, 122, 150);
 
 	push();
 	shelfOne();
@@ -472,20 +461,78 @@ function expandShelfTwo() {
 	translate(0, y + 5);
 	shelfOne();
 	pop();
+
+	proj1 = createButton("");
+	proj1.mouseClicked(openPopUp5);
+	proj1.size(65, 300);
+	proj1.position(x - 628, y - 300);
+	proj1.style("cursor", "pointer");
+	proj1.style("background-color", "black");
+	proj1.style("font-family", "Times New Roman");
+	proj1.style("color", "white");
+	proj1.style("font-size", "20px");
+	proj1.style("border", "none");
+
+	proj2 = createButton("");
+	proj2.mouseClicked(openPopUp6);
+	proj2.size(85, 285);
+	proj2.position(x - 412, y + 40);
+	proj2.style("cursor", "pointer");
+	proj2.style("background-color", "black");
+	proj2.style("font-family", "Times New Roman");
+	proj2.style("color", "white");
+	proj2.style("font-size", "20px");
+	proj2.style("border", "none");
+
+	proj3 = createButton("");
+	proj3.mouseClicked(openPopUp7);
+	proj3.size(70, 310);
+	proj3.position(x + 472, y - 310);
+	proj3.style("cursor", "pointer");
+	proj3.style("background-color", "black");
+	proj3.style("font-family", "Times New Roman");
+	proj3.style("color", "white");
+	proj3.style("font-size", "20px");
+	proj3.style("border", "none");
+
+	backButton = createButton("⇦");
+	backButton.mouseClicked(goBack);
+	backButton.size(35,35);
+	backButton.position(x - 670, y - 300);
+	backButton.style("cursor", "pointer");
+	backButton.style("background-color", "black");
+	backButton.style("font-family", "Times New Roman");
+	backButton.style("color", "white");
+	backButton.style("font-size", "20px");
+	backButton.style("border", "none");
+
 }
 
-function openPopUp() {
+function openPopUp1() {
 	push();
 	fill(255);
-	translate(x - 250, y - 250);
+	translate(x, y);
 	strokeWeight(5);
 	rect(0, 0, 500, 500);
 	pop();
 
+	greekGif = createImg("greek.gif", "Loading Issue");
+	greekGif.position(x - 150, y - 225);
+	greekGif.size(275,350);
+
+	textBox1 = createButton("GREEK GODDESSES <br> <br> I made these illustrations of the greek gods and godesses for an in-class coding assignment.");
+	textBox1.size(400,50);
+	textBox1.position(x - 200, y + 140);
+	textBox1.style("background-color", "transparent");
+	textBox1.style("font-family", "Times New Roman");
+	textBox1.style("color", "black");
+	textBox1.style("font-size", "20px");
+	textBox1.style("border", "none");
+
 	closeButton = createButton("Close");
-	closeButton.mouseClicked(closePopUp);
+	closeButton.mouseClicked(closePopUp1);
 	closeButton.size(100,35);
-	closeButton.position(x + 550, y + 275);
+	closeButton.position(x + 550, y + 250);
 	closeButton.style("cursor", "pointer");
 	closeButton.style("background-color", "black");
 	closeButton.style("font-family", "Times New Roman");
@@ -494,9 +541,213 @@ function openPopUp() {
 	closeButton.style("border", "none");
 }
 
-function closePopUp() {
+function openPopUp2() {
+	push();
+	fill(255);
+	translate(x, y);
+	strokeWeight(5);
+	rect(0, 0, 500, 500);
+	pop();
+
+	barbieGif = createImg("barbie.gif", "Loading Issue");
+	barbieGif.position(x - 125, y - 200);
+	barbieGif.size(275, 300);
+
+	textBox2 = createButton("BARBIE LOGO REDESIGN <br> <br> As a part of a weekly creative output, I redesigned various company logos. This was my take on Barbie's.");
+	textBox2.size(450,50);
+	textBox2.position(x - 220, y + 135);
+	textBox2.style("background-color", "transparent");
+	textBox2.style("font-family", "Times New Roman");
+	textBox2.style("color", "black");
+	textBox2.style("font-size", "20px");
+	textBox2.style("border", "none");
+
+	closeButton = createButton("Close");
+	closeButton.mouseClicked(closePopUp2);
+	closeButton.size(100,35);
+	closeButton.position(x + 550, y + 250);
+	closeButton.style("cursor", "pointer");
+	closeButton.style("background-color", "black");
+	closeButton.style("font-family", "Times New Roman");
+	closeButton.style("color", "white");
+	closeButton.style("font-size", "20px");
+	closeButton.style("border", "none");
+}
+
+
+function openPopUp3() {
+	push();
+	fill(255);
+	translate(x, y);
+	strokeWeight(5);
+	rect(0, 0, 500, 500);
+	pop();
+
+	spaceImg = createImg("prophets.png", "Loading Issue");
+	spaceImg.position(x - 150, y - 225);
+	spaceImg.size(300, 325);
+
+	textBox3 = createButton("SPACE PROPHETS <br> <br> Meet Raghnall, Bazala, and Thaddia, the Prophets of the DaVinci Galaxy! (This is character art for an online game I created and published on the internet at https://ashlib.github.io/space_futures/)");
+	textBox3.size(500,75);
+	textBox3.position(x - 250, y + 100);
+	textBox3.style("background-color", "transparent");
+	textBox3.style("font-family", "Times New Roman");
+	textBox3.style("color", "black");
+	textBox3.style("font-size", "20px");
+	textBox3.style("border", "none");
+
+	closeButton = createButton("Close");
+	closeButton.mouseClicked(closePopUp3);
+	closeButton.size(100,35);
+	closeButton.position(x + 550, y + 250);
+	closeButton.style("cursor", "pointer");
+	closeButton.style("background-color", "black");
+	closeButton.style("font-family", "Times New Roman");
+	closeButton.style("color", "white");
+	closeButton.style("font-size", "20px");
+	closeButton.style("border", "none");
+}
+
+
+function openPopUp4() {
+	push();
+	fill(255);
+	translate(x, y);
+	strokeWeight(5);
+	rect(0, 0, 500, 500);
+	pop();
+
+	hpGif = createImg("hp.gif", "Loading Issue");
+	hpGif.position(x - 125, y - 225);
+	hpGif.size(250, 325);
+
+	textBox4 = createButton("HARRY POTTER ADVENTURE GAME <br> <br> Illustrations created for a Harry Potter themed choose-your-own-adventure game.");
+	textBox4.size(450,50);
+	textBox4.position(x - 220, y + 135);
+	textBox4.style("background-color", "transparent");
+	textBox4.style("font-family", "Times New Roman");
+	textBox4.style("color", "black");
+	textBox4.style("font-size", "20px");
+	textBox4.style("border", "none");
+
+	closeButton = createButton("Close");
+	closeButton.mouseClicked(closePopUp4);
+	closeButton.size(100,35);
+	closeButton.position(x + 550, y + 250);
+	closeButton.style("cursor", "pointer");
+	closeButton.style("background-color", "black");
+	closeButton.style("font-family", "Times New Roman");
+	closeButton.style("color", "white");
+	closeButton.style("font-size", "20px");
+	closeButton.style("border", "none");
+}
+
+
+function openPopUp5() {
+	push();
+	fill(255);
+	translate(x, y);
+	strokeWeight(5);
+	rect(0, 0, 500, 500);
+	pop();
+
+	dmGif = createImg("dm.gif", "Loading Issue");
+	dmGif.position(x - 125, y - 225);
+	dmGif.size(225, 300);
+
+	textBox5 = createButton("DESIGN MENTORSHIP ACTIVITY <br> <br> A series of design exercises between myself and a collaborator. Every other week, we exchanged a layout to be redesigned by the other using only the existing elements on the page (Mine: 2 & 4).");
+	textBox5.size(500, 50);
+	textBox5.position(x - 250, y + 100);
+	textBox5.style("background-color", "transparent");
+	textBox5.style("font-family", "Times New Roman");
+	textBox5.style("color", "black");
+	textBox5.style("font-size", "20px");
+	textBox5.style("border", "none");
+
+	closeButton = createButton("Close");
+	closeButton.mouseClicked(closePopUp5);
+	closeButton.size(100,35);
+	closeButton.position(x + 550, y + 250);
+	closeButton.style("cursor", "pointer");
+	closeButton.style("background-color", "black");
+	closeButton.style("font-family", "Times New Roman");
+	closeButton.style("color", "white");
+	closeButton.style("font-size", "20px");
+	closeButton.style("border", "none");
+}
+
+
+function openPopUp6() {
+	push();
+	fill(255);
+	translate(x, y);
+	strokeWeight(5);
+	rect(0, 0, 500, 500);
+	pop();
+
+	cardsGif = createImg("cards.gif", "Loading Issue");
+	cardsGif.position(x - 140, y - 225);
+	cardsGif.size(275, 300);
+
+	textBox6 = createButton("PLAYING CARDS <br> <br> Celestial-themed playing cards completely designed and illustrtaed by me.");
+	textBox6.size(500, 50);
+	textBox6.position(x - 250, y + 125);
+	textBox6.style("background-color", "transparent");
+	textBox6.style("font-family", "Times New Roman");
+	textBox6.style("color", "black");
+	textBox6.style("font-size", "20px");
+	textBox6.style("border", "none");
+
+	closeButton = createButton("Close");
+	closeButton.mouseClicked(closePopUp6);
+	closeButton.size(100,35);
+	closeButton.position(x + 550, y + 250);
+	closeButton.style("cursor", "pointer");
+	closeButton.style("background-color", "black");
+	closeButton.style("font-family", "Times New Roman");
+	closeButton.style("color", "white");
+	closeButton.style("font-size", "20px");
+	closeButton.style("border", "none");
+}
+
+function openPopUp7() {
+	push();
+	fill(255);
+	translate(x, y);
+	strokeWeight(5);
+	rect(0, 0, 500, 500);
+	pop();
+
+	menuGif = createImg("menu.gif", "Loading Issue");
+	menuGif.position(x - 140, y - 225);
+	menuGif.size(275, 315);
+
+	textBox7 = createButton("JUNIOR'S MENU <br> <br> Re-designed the Junior's menu for a class assignment.");
+	textBox7.size(500, 50);
+	textBox7.position(x - 250, y + 125);
+	textBox7.style("background-color", "transparent");
+	textBox7.style("font-family", "Times New Roman");
+	textBox7.style("color", "black");
+	textBox7.style("font-size", "20px");
+	textBox7.style("border", "none");
+
+	closeButton = createButton("Close");
+	closeButton.mouseClicked(closePopUp7);
+	closeButton.size(100,35);
+	closeButton.position(x + 550, y + 250);
+	closeButton.style("cursor", "pointer");
+	closeButton.style("background-color", "black");
+	closeButton.style("font-family", "Times New Roman");
+	closeButton.style("color", "white");
+	closeButton.style("font-size", "20px");
+	closeButton.style("border", "none");
+}
+
+function closePopUp1() {
 	clear();
 	closeButton.hide();
+	textBox1.hide();
+	greekGif.hide();
 
 	if (state==4) {
 		expandShelfOne();
@@ -507,6 +758,109 @@ function closePopUp() {
 	}
 }
 
+function closePopUp2() {
+	clear();
+	closeButton.hide();
+	textBox2.hide();
+	barbieGif.hide();
+
+	if (state==4) {
+		expandShelfOne();
+	}
+
+	if (state==5) {
+		expandShelfTwo();
+	}
+}
+
+function closePopUp3() {
+	clear();
+	closeButton.hide();
+	textBox3.hide();
+	spaceImg.hide();
+
+	if (state==4) {
+		expandShelfOne();
+	}
+
+	if (state==5) {
+		expandShelfTwo();
+	}
+}
+
+function closePopUp4() {
+	clear();
+	closeButton.hide();
+	textBox4.hide();
+	hpGif.hide();
+
+	if (state==4) {
+		expandShelfOne();
+	}
+
+	if (state==5) {
+		expandShelfTwo();
+	}
+}
+
+function closePopUp5() {
+	clear();
+	closeButton.hide();
+	textBox5.hide();
+	dmGif.hide();
+
+
+	if (state==4) {
+		expandShelfOne();
+	}
+
+	if (state==5) {
+		expandShelfTwo();
+	}
+}
+
+function closePopUp6() {
+	clear();
+	closeButton.hide();
+	textBox6.hide();
+	cardsGif.hide();
+
+	if (state==4) {
+		expandShelfOne();
+	}
+
+	if (state==5) {
+		expandShelfTwo();
+	}
+}
+
+function closePopUp7() {
+	clear();
+	closeButton.hide();
+	textBox7.hide();
+	menuGif.hide();
+
+
+	if (state==4) {
+		expandShelfOne();
+	}
+
+	if (state==5) {
+		expandShelfTwo();
+	}
+}
+
+function goBack() {
+	newState = true;
+
+	if (newState==true) {
+		state = 0;
+	}
+
+	print("hih");
+
+}
+
 function windowResized() {
-   resizeCanvas(1350, 650);
+   resizeCanvas(window.innerWidth, window.innerHeight);
 }
