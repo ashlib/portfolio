@@ -10,7 +10,7 @@ function preload() {
 }
 
 function setup() {
-	createCanvas(window.innerWidth, window.innerHeight);
+	createCanvas(1350, 650);
 
 	x = width/2;
 	y = height/2;
@@ -61,7 +61,7 @@ function draw() {
 	}
 
 	if (state==3){
-		noLoop();
+		// noLoop();
 		background(255);
 		shelfBackground();
 		shelfOne();
@@ -70,11 +70,13 @@ function draw() {
 	}
 
 	if (state==4) {
+		background(44, 100, 66);
+		expandedShelfOne();
+	}
+
+	if (state==5) {
 		background(255);
-		shelfOne();
-		shelfTwo();
-		shelfButtons();
-		popUp();
+		expandedShelfTwo();
 	}
 }
 
@@ -199,13 +201,6 @@ function shelfBackground() {
 	noStroke();
 	fill(165, 122, 150);
 	translate(x, y);
-	rect(0, 0, width, y);
-	pop();
-
-	push();
-	noStroke();
-	fill(86, 100, 137);
-	translate(x, y + 470);
 	rect(0, 0, width, y);
 	pop();
 }
@@ -342,6 +337,32 @@ function shelfOne() {
 	rect(0, 0, 50, 310);
 	pop();
 
+	push();
+	strokeWeight(5);
+	line(width, y, -width, y);
+	pop();
+}
+
+function shelfTwo() {
+	push();
+	translate(0, y + 5);
+	shelfOne();
+	pop();
+}
+
+function expandedShelfOne() {
+	graphButton.hide();
+	illusButton.hide();
+
+	push();
+	shelfOne();
+	pop();
+
+	push();
+	translate(0, y + 5);
+	shelfOne();
+	pop();
+
 	proj1 = createButton("");
 	proj1.mouseClicked(popUp);
 	proj1.size(60, 325);
@@ -354,24 +375,19 @@ function shelfOne() {
 	proj1.style("border", "solid");
 	proj1.style("border-color", "white");
 	proj1.style("border-width", "3.5px");
-
-	push();
-	strokeWeight(5);
-	line(width, y, -width, y);
-	pop();
 }
 
-function shelfTwo() {
+function expandedShelfTwo() {
+	graphButton.hide();
+	illusButton.hide();
+
 	push();
-	translate(0, y + 5);
 	shelfOne();
 	pop();
 
 	push();
-	stroke(0);
-	strokeWeight(5);
-	translate(0, y + 500);
-	line(width, y, -width, y);
+	translate(0, y + 5);
+	shelfOne();
 	pop();
 }
 
@@ -401,21 +417,17 @@ function shelfButtons() {
 		illusButton.style("font-size", "20px");
 		illusButton.style("border", "solid");
 		illusButton.style("border-color", "black");
-	}
+}
 
 function showShelfOne() {
-	graphButton.hide();
-	illusButton.show();
+	state = 4;
 }
 
 function showShelfTwo() {
-	graphButton.show();
-	illusButton.hide();
+	state = 5;
 }
 
 function popUp() {
-	state = 4;
-
 	push();
 	fill(255);
 	translate(x, y);
