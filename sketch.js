@@ -32,7 +32,7 @@ function setup() {
 		aboutButton = createButton("About Me");
 		aboutButton.mouseClicked(goToAbout);
 		aboutButton.size(100,35);
-		aboutButton.position(x - 675, y - 300);
+		aboutButton.position(x - 650, y - 300);
 		aboutButton.style("cursor", "pointer");
 		aboutButton.style("background-color", "transparent");
 		aboutButton.style("font-family", "Times New Roman");
@@ -861,6 +861,6 @@ function goBack() {
 
 }
 
-function windowResized() {
-   resizeCanvas(window.innerWidth, window.innerHeight);
-}
+// function windowResized() {
+//    resizeCanvas(window.innerWidth, window.innerHeight);
+// }
