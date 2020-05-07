@@ -1,4 +1,4 @@
-state = 0;
+state = 4;
 
 var openX = 0;
 var title = "A S H L I  B Y F I E L D";
@@ -19,7 +19,7 @@ function setup() {
 		doorButton = createButton("My Work");
 		doorButton.mouseClicked(openDoor);
 		doorButton.size(100,35);
-		doorButton.position(x + 575, y - 325);
+		doorButton.position(x + 575, y - 300);
 		doorButton.style("cursor", "pointer");
 		doorButton.style("background-color", "transparent");
 		doorButton.style("font-family", "Times New Roman");
@@ -30,7 +30,7 @@ function setup() {
 		aboutButton = createButton("About Me");
 		aboutButton.mouseClicked(goToAbout);
 		aboutButton.size(100,35);
-		aboutButton.position(x - 675, y - 325);
+		aboutButton.position(x - 675, y - 300);
 		aboutButton.style("cursor", "pointer");
 		aboutButton.style("background-color", "transparent");
 		aboutButton.style("font-family", "Times New Roman");
@@ -38,6 +38,7 @@ function setup() {
 		aboutButton.style("font-size", "20px");
 		aboutButton.style("border", "none");
 	}
+
 }
 
 function draw() {
@@ -61,50 +62,125 @@ function draw() {
 	}
 
 	if (state==3){
-		// noLoop();
+		noLoop();
 		background(255);
 		shelfBackground();
 		shelfOne();
 		shelfTwo();
-		shelfButtons();
+
+		illusButton = createButton("DIGITAL ILLUSTRATION");
+		illusButton.mouseClicked(expandShelfTOne);
+		illusButton.size(width, y);
+		illusButton.position(0, 0);
+		illusButton.style("cursor", "pointer");
+		illusButton.style("background-color", "black");
+		illusButton.style("opacity", ".25");
+		illusButton.style("font-family", "Times New Roman");
+		illusButton.style("color", "white");
+		illusButton.style("font-size", "20px");
+		illusButton.style("border", "solid");
+		illusButton.style("border-color", "black");
+
+		graphButton = createButton("GRAPHIC DESIGN");
+		graphButton.mouseClicked(expandShelfTwo);
+		graphButton.size(width, y);
+		graphButton.position(0, 325);
+		graphButton.style("cursor", "pointer");
+		graphButton.style("background-color", "black");
+		graphButton.style("opacity", ".25");
+		graphButton.style("font-family", "Times New Roman");
+		graphButton.style("color", "white");
+		graphButton.style("font-size", "20px");
+		graphButton.style("border", "solid");
+		graphButton.style("border-color", "black");
 	}
 
 	if (state==4) {
-		background(44, 100, 66);
-		expandedShelfOne();
+		noLoop();
+		expandShelfOne();
+
+		proj1 = createButton("");
+		proj1.mouseClicked(openPopUp);
+		proj1.size(65, 300);
+		proj1.position(x - 628, y - 300);
+		proj1.style("cursor", "pointer");
+		proj1.style("background-color", "black");
+		proj1.style("font-family", "Times New Roman");
+		proj1.style("color", "white");
+		proj1.style("font-size", "20px");
+		proj1.style("border", "none");
+
+		proj2 = createButton("");
+		proj2.mouseClicked(openPopUp);
+		proj2.size(85, 285);
+		proj2.position(x - 412, y + 40);
+		proj2.style("cursor", "pointer");
+		proj2.style("background-color", "black");
+		proj2.style("font-family", "Times New Roman");
+		proj2.style("color", "white");
+		proj2.style("font-size", "20px");
+		proj2.style("border", "none");
+
+		proj3 = createButton("");
+		proj3.mouseClicked(openPopUp);
+		proj3.size(70, 310);
+		proj3.position(x + 472, y - 310);
+		proj3.style("cursor", "pointer");
+		proj3.style("background-color", "black");
+		proj3.style("font-family", "Times New Roman");
+		proj3.style("color", "white");
+		proj3.style("font-size", "20px");
+		proj3.style("border", "none");
+
+		proj4 = createButton("");
+		proj4.mouseClicked(openPopUp);
+		proj4.size(70, 310);
+		proj4.position(x + 472, y - 310);
+		proj4.style("cursor", "pointer");
+		proj4.style("background-color", "black");
+		proj4.style("font-family", "Times New Roman");
+		proj4.style("color", "white");
+		proj4.style("font-size", "20px");
+		proj4.style("border", "none");
 	}
 
 	if (state==5) {
-		background(255);
-		expandedShelfTwo();
+		noLoop();
+		expandShelfTwo();
+
+		proj1 = createButton("");
+		proj1.mouseClicked(openPopUp);
+		proj1.size(65, 300);
+		proj1.position(x - 628, y - 300);
+		proj1.style("cursor", "pointer");
+		proj1.style("background-color", "black");
+		proj1.style("font-family", "Times New Roman");
+		proj1.style("color", "white");
+		proj1.style("font-size", "20px");
+		proj1.style("border", "none");
+
+		proj2 = createButton("");
+		proj2.mouseClicked(openPopUp);
+		proj2.size(85, 285);
+		proj2.position(x - 412, y + 40);
+		proj2.style("cursor", "pointer");
+		proj2.style("background-color", "black");
+		proj2.style("font-family", "Times New Roman");
+		proj2.style("color", "white");
+		proj2.style("font-size", "20px");
+		proj2.style("border", "none");
+
+		proj3 = createButton("");
+		proj3.mouseClicked(openPopUp);
+		proj3.size(70, 310);
+		proj3.position(x + 472, y - 310);
+		proj3.style("cursor", "pointer");
+		proj3.style("background-color", "black");
+		proj3.style("font-family", "Times New Roman");
+		proj3.style("color", "white");
+		proj3.style("font-size", "20px");
+		proj3.style("border", "none");
 	}
-}
-
-function about() {
-	push();
-	fill(0);
-	textFont(pFont);
-	textAlign(CENTER);
-	textSize(45);
-	translate(x + 175, y - 194);
-	text("About the Creator", 0, 0);
-	pop();
-
-	push();
-	imageMode(CENTER);
-	translate(x - 250, y);
-	image(profImage, 0, 0, 368, 450);
-	pop();
-
-	push();
-	fill(0);
-	textFont("Times New Roman");
-	textAlign(LEFT);
-	textSize(24);
-	translate(x, y - 150);
-	textLeading(38);
-	text("———————————— \nHi, my name is Ashli and I am a creator. \nCurrently an NYU student studying \nIntegrated Digital Media, \nI am cultivaing skills in coding, design, \nand illustration. On this portfolio \nsite, made by yours truly, you will find the \nwork I've done both before and during \nmy studies. It is my hope that you will not only \nsee my talent, but my growth. \n————————————", 0, 0);
-	pop();
 }
 
 function setDoor() {
@@ -189,6 +265,37 @@ function introText() {
 	pop();
 }
 
+function about() {
+	push();
+	fill(0);
+	textFont(pFont);
+	textAlign(CENTER);
+	textSize(45);
+	translate(x + 175, y - 194);
+	text("About the Creator", 0, 0);
+	pop();
+
+	push();
+	imageMode(CENTER);
+	translate(x - 250, y);
+	image(profImage, 0, 0, 368, 450);
+	pop();
+
+	push();
+	fill(0);
+	textFont("Times New Roman");
+	textAlign(LEFT);
+	textSize(24);
+	translate(x, y - 150);
+	textLeading(38);
+	text("———————————— \nHi, my name is Ashli and I am a creator. \nCurrently an NYU student studying \nIntegrated Digital Media, \nI am cultivaing skills in coding, design, \nand illustration. On this portfolio \nsite, made by yours truly, you will find the \nwork I've done both before and during \nmy studies. It is my hope that you will not only \nsee my talent, but my growth. \n————————————", 0, 0);
+	pop();
+}
+
+function goToAbout() {
+	state = 2;
+}
+
 function shelfBackground() {
 	push();
 	noStroke();
@@ -213,232 +320,193 @@ function shelfOne() {
 
 	push();
 	fill(255);
-	translate(x - 725, y - 150);
+	translate(x - 655, y - 123);
+	rect(0, 0, 75, 245);
+	pop();
+
+	push();
+	fill(255);
+	translate(x - 595, y - 150);
 	rect(0, 0, 65, 300);
 	pop();
 
 	push();
 	fill(255);
-	translate(x - 655, y - 125);
-	rect(0, 0, 75, 250);
+	translate(x - 530, y - 145);
+	rect(0, 0, 65, 290);
 	pop();
 
 	push();
 	fill(255);
-	translate(x - 590, y - 162);
-	rect(0, 0, 60, 325);
+	translate(x - 455, y - 152.5);
+	rect(0, 0, 85, 305);
 	pop();
 
 	push();
 	fill(255);
-	translate(x - 527, y - 150);
-	rect(0, 0, 65, 300);
+	translate(x - 370, y - 142.5);
+	rect(0, 0, 85, 285);
 	pop();
 
 	push();
 	fill(255);
-	translate(x - 473, y - 162);
-	rect(0, 0, 45, 325);
+	translate(x - 285, y - 142.5);
+	rect(0, 0, 85, 285);
 	pop();
 
 	push();
 	fill(255);
-	translate(x - 415, y - 170);
-	rect(0, 0, 75, 340);
+	translate(x - 210, y - 115);
+	rect(0, 0, 65, 230);
 	pop();
 
 	push();
 	fill(255);
-	translate(x - 335, y - 150);
-	rect(0, 0, 85, 300);
+	translate(x - 150, y - 155);
+	rect(0, 0, 55, 310);
 	pop();
 
 	push();
 	fill(255);
-	translate(x - 250, y - 150);
-	rect(0, 0, 85, 300);
+	translate(x - 95, y - 150);
+	rect(0, 0, 55, 300);
 	pop();
 
 	push();
 	fill(255);
-	translate(x - 165, y - 125);
-	rect(0, 0, 85, 250);
+	translate(x - 20, y - 125);
+	rect(0, 0, 95, 250);
 	pop();
 
 	push();
 	fill(255);
-	translate(x - 100, y - 162);
-	rect(0, 0, 50, 325);
+	translate(x + 50, y - 132.5);
+	rect(0, 0, 45, 265);
 	pop();
 
 	push();
 	fill(255);
-	translate(x - 32, y - 150);
-	rect(0, 0, 85, 300);
+	translate(x + 127.5, y - 140);
+	rect(0, 0, 110, 280);
 	pop();
 
 	push();
 	fill(255);
-	translate(x + 41, y - 125);
-	rect(0, 0, 60, 250);
-	pop();
-
-	push();
-	fill(255);
-	translate(x + 127, y - 150);
-	rect(0, 0, 110, 300);
-	pop();
-
-	push();
-	fill(255);
-	translate(x + 223, y - 157);
+	translate(x + 222.5, y - 157.5);
 	rect(0, 0, 80, 315);
 	pop();
 
 	push();
 	fill(255);
-	translate(x + 300, y - 162);
-	rect(0, 0, 85, 325);
+	translate(x + 305, y - 150);
+	rect(0, 0, 85, 300);
 	pop();
 
 	push();
 	fill(255);
-	translate(x + 365, y - 168);
-	rect(0, 0, 45, 335);
+	translate(x + 369, y - 157.5);
+	rect(0, 0, 45, 315);
 	pop();
 
 	push();
 	fill(255);
-	translate(x + 443, y - 150);
-	rect(0, 0, 110, 300);
+	translate(x + 431.5, y - 150);
+	rect(0, 0, 80, 300);
 	pop();
 
 	push();
 	fill(255);
-	translate(x + 533, y - 163);
-	rect(0, 0, 70, 325);
+	translate(x + 506.5, y - 155);
+	rect(0, 0, 70, 310);
 	pop();
 
 	push();
 	fill(255);
-	translate(x + 593, y - 138);
-	rect(0, 0, 50, 275);
+	translate(x + 574, y - 127.5);
+	rect(0, 0, 65, 255);
 	pop();
 
 	push();
 	fill(255);
-	translate(x + 668, y - 125);
-	rect(0, 0, 100, 250);
-	pop();
-
-	push();
-	fill(255);
-	translate(x + 743, y - 155);
-	rect(0, 0, 50, 310);
-	pop();
-
-	push();
-	strokeWeight(5);
-	line(width, y, -width, y);
+	translate(x + 651.5, y - 135);
+	rect(0, 0, 90, 270);
 	pop();
 }
 
 function shelfTwo() {
 	push();
-	translate(0, y + 5);
+	translate(0, y);
 	shelfOne();
 	pop();
 }
 
-function expandedShelfOne() {
-	graphButton.hide();
-	illusButton.hide();
-
-	push();
-	shelfOne();
-	pop();
-
-	push();
-	translate(0, y + 5);
-	shelfOne();
-	pop();
-
-	proj1 = createButton("");
-	proj1.mouseClicked(popUp);
-	proj1.size(60, 325);
-	proj1.position(x - 620, y - 325);
-	proj1.style("cursor", "pointer");
-	proj1.style("background-color", "black");
-	proj1.style("font-family", "Times New Roman");
-	proj1.style("color", "white");
-	proj1.style("font-size", "20px");
-	proj1.style("border", "solid");
-	proj1.style("border-color", "white");
-	proj1.style("border-width", "3.5px");
-}
-
-function expandedShelfTwo() {
-	graphButton.hide();
-	illusButton.hide();
-
-	push();
-	shelfOne();
-	pop();
-
-	push();
-	translate(0, y + 5);
-	shelfOne();
-	pop();
-}
-
-function shelfButtons() {
-		graphButton = createButton("GRAPHIC DESIGN");
-		graphButton.mouseClicked(showShelfOne);
-		graphButton.size(width, y);
-		graphButton.position(0, 0);
-		graphButton.style("cursor", "pointer");
-		graphButton.style("background-color", "black");
-		graphButton.style("opacity", ".25");
-		graphButton.style("font-family", "Times New Roman");
-		graphButton.style("color", "white");
-		graphButton.style("font-size", "20px");
-		graphButton.style("border", "solid");
-		graphButton.style("border-color", "black");
-
-		illusButton = createButton("DIGITAL ILLUSTRATION");
-		illusButton.mouseClicked(showShelfTwo);
-		illusButton.size(width, y);
-		illusButton.position(0, 345);
-		illusButton.style("cursor", "pointer");
-		illusButton.style("background-color", "black");
-		illusButton.style("opacity", ".25");
-		illusButton.style("font-family", "Times New Roman");
-		illusButton.style("color", "white");
-		illusButton.style("font-size", "20px");
-		illusButton.style("border", "solid");
-		illusButton.style("border-color", "black");
-}
-
-function showShelfOne() {
+function expandShelfOne() {
 	state = 4;
+
+	background(165, 122, 150);
+
+	// graphButton.hide();
+	// illusButton.hide();
+
+	push();
+	shelfOne();
+	pop();
+
+	push();
+	translate(0, y + 5);
+	shelfOne();
+	pop();
 }
 
-function showShelfTwo() {
-	state = 5;
+function expandShelfTwo() {
+	// illusButton.hide();
+	// graphButton.hide();
+
+	background(44, 100, 66);
+
+	push();
+	shelfOne();
+	pop();
+
+	push();
+	translate(0, y + 5);
+	shelfOne();
+	pop();
 }
 
-function popUp() {
+function openPopUp() {
 	push();
 	fill(255);
-	translate(x, y);
+	translate(x - 250, y - 250);
+	strokeWeight(5);
 	rect(0, 0, 500, 500);
 	pop();
+
+	closeButton = createButton("Close");
+	closeButton.mouseClicked(closePopUp);
+	closeButton.size(100,35);
+	closeButton.position(x + 550, y + 275);
+	closeButton.style("cursor", "pointer");
+	closeButton.style("background-color", "black");
+	closeButton.style("font-family", "Times New Roman");
+	closeButton.style("color", "white");
+	closeButton.style("font-size", "20px");
+	closeButton.style("border", "none");
 }
 
-function goToAbout() {
-	state = 2;
+function closePopUp() {
+	clear();
+	closeButton.hide();
+
+	if (state==4) {
+		expandShelfOne();
+	}
+
+	if (state==5) {
+		expandShelfTwo();
+	}
 }
 
 function windowResized() {
-   resizeCanvas(window.innerWidth, window.innerHeight);
+   resizeCanvas(1350, 650);
 }
