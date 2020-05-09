@@ -2,13 +2,12 @@ state = 0;
 
 var openX = 0;
 var title = "A S H L I  B Y F I E L D";
+var bKey;
 
 function preload() {
 	h1Font = loadFont("sfkingstonlight.otf");
 	pFont = loadFont("bodoniitalicbt.ttf");
 	profImage = loadImage("bwprofile.jpg");
-
-
 }
 
 function setup() {
@@ -32,7 +31,7 @@ function setup() {
 		aboutButton = createButton("About Me");
 		aboutButton.mouseClicked(goToAbout);
 		aboutButton.size(100,35);
-		aboutButton.position(x - 650, y - 300);
+		aboutButton.position(x - 655, y - 300);
 		aboutButton.style("cursor", "pointer");
 		aboutButton.style("background-color", "transparent");
 		aboutButton.style("font-family", "Times New Roman");
@@ -40,7 +39,6 @@ function setup() {
 		aboutButton.style("font-size", "20px");
 		aboutButton.style("border", "none");
 	}
-
 }
 
 function draw() {
@@ -95,17 +93,6 @@ function draw() {
 		graphButton.style("font-size", "20px");
 		graphButton.style("border", "solid");
 		graphButton.style("border-color", "black");
-
-		backButton = createButton("⇦");
-		backButton.mouseClicked(goBack);
-		backButton.size(35,35);
-		backButton.position(x - 670, y - 300);
-		backButton.style("cursor", "pointer");
-		backButton.style("background-color", "black");
-		backButton.style("font-family", "Times New Roman");
-		backButton.style("color", "white");
-		backButton.style("font-size", "20px");
-		backButton.style("border", "none");
 	}
 
 	if (state==4) {
@@ -113,6 +100,7 @@ function draw() {
 
 	if (state==5) {
 	}
+
 }
 
 function setDoor() {
@@ -140,8 +128,9 @@ function openDoor() {
 	fill(255);
 	translate(x,y);
 	rect(0, 0, openX, 550);
-	pop();
 	openX = openX + 7;
+	pop();
+
 
 	if (openX>=625) {
 		push();
@@ -395,9 +384,6 @@ function expandShelfOne() {
 		proj1.position(x - 628, y - 300);
 		proj1.style("cursor", "pointer");
 		proj1.style("background-color", "black");
-		proj1.style("font-family", "Times New Roman");
-		proj1.style("color", "white");
-		proj1.style("font-size", "20px");
 		proj1.style("border", "none");
 
 		proj2 = createButton("");
@@ -406,9 +392,6 @@ function expandShelfOne() {
 		proj2.position(x - 412, y + 40);
 		proj2.style("cursor", "pointer");
 		proj2.style("background-color", "black");
-		proj2.style("font-family", "Times New Roman");
-		proj2.style("color", "white");
-		proj2.style("font-size", "20px");
 		proj2.style("border", "none");
 
 		proj3 = createButton("");
@@ -417,9 +400,6 @@ function expandShelfOne() {
 		proj3.position(x + 472, y - 310);
 		proj3.style("cursor", "pointer");
 		proj3.style("background-color", "black");
-		proj3.style("font-family", "Times New Roman");
-		proj3.style("color", "white");
-		proj3.style("font-size", "20px");
 		proj3.style("border", "none");
 
 		proj4 = createButton("");
@@ -428,9 +408,6 @@ function expandShelfOne() {
 		proj4.position(x + 346, y + 10);
 		proj4.style("cursor", "pointer");
 		proj4.style("background-color", "black");
-		proj4.style("font-family", "Times New Roman");
-		proj4.style("color", "white");
-		proj4.style("font-size", "20px");
 		proj4.style("border", "none");
 
 		backButton = createButton("⇦");
@@ -468,9 +445,6 @@ function expandShelfTwo() {
 	proj1.position(x - 628, y - 300);
 	proj1.style("cursor", "pointer");
 	proj1.style("background-color", "black");
-	proj1.style("font-family", "Times New Roman");
-	proj1.style("color", "white");
-	proj1.style("font-size", "20px");
 	proj1.style("border", "none");
 
 	proj2 = createButton("");
@@ -479,9 +453,6 @@ function expandShelfTwo() {
 	proj2.position(x - 412, y + 40);
 	proj2.style("cursor", "pointer");
 	proj2.style("background-color", "black");
-	proj2.style("font-family", "Times New Roman");
-	proj2.style("color", "white");
-	proj2.style("font-size", "20px");
 	proj2.style("border", "none");
 
 	proj3 = createButton("");
@@ -490,9 +461,6 @@ function expandShelfTwo() {
 	proj3.position(x + 472, y - 310);
 	proj3.style("cursor", "pointer");
 	proj3.style("background-color", "black");
-	proj3.style("font-family", "Times New Roman");
-	proj3.style("color", "white");
-	proj3.style("font-size", "20px");
 	proj3.style("border", "none");
 
 	backButton = createButton("⇦");
@@ -501,9 +469,6 @@ function expandShelfTwo() {
 	backButton.position(x - 670, y - 300);
 	backButton.style("cursor", "pointer");
 	backButton.style("background-color", "black");
-	backButton.style("font-family", "Times New Roman");
-	backButton.style("color", "white");
-	backButton.style("font-size", "20px");
 	backButton.style("border", "none");
 
 }
@@ -675,7 +640,6 @@ function openPopUp5() {
 	closeButton.style("font-size", "20px");
 	closeButton.style("border", "none");
 }
-
 
 function openPopUp6() {
 	push();
@@ -851,16 +815,66 @@ function closePopUp7() {
 }
 
 function goBack() {
-	newState = true;
+		state = 3;
 
-	if (newState==true) {
-		state = 0;
-	}
+		if (state==3) {
+			background(255);
+			shelfBackground();
+			shelfOne();
+			shelfTwo();
 
-	print("hih");
+		proj1 = createButton("");
+		proj1.size(65, 300);
+		proj1.position(x - 628, y - 300);
+		proj1.style("background-color", "white");
+		proj1.style("border", "solid");
+		proj1.style("border-width", "2px");
 
+		proj2 = createButton("");
+		proj2.size(85, 285);
+		proj2.position(x - 412, y + 40);
+		proj2.style("background-color", "white");
+		proj2.style("border", "solid");
+		proj1.style("border-width", "2px");
+
+		proj3 = createButton("");
+		proj3.size(70, 310);
+		proj3.position(x + 472, y - 310);
+		proj3.style("background-color", "white");
+		proj3.style("border", "solid");
+		proj1.style("border-width", "2px");
+
+		proj4 = createButton("");
+		proj4.size(45, 315);
+		proj4.position(x + 346, y + 10);
+		proj4.style("background-color", "white");
+		proj4.style("border", "solid");
+		proj1.style("border-width", "2px");
+
+		illusButton = createButton("DIGITAL ILLUSTRATION");
+		illusButton.mouseClicked(expandShelfOne);
+		illusButton.size(width, y);
+		illusButton.position(0, 0);
+		illusButton.style("cursor", "pointer");
+		illusButton.style("background-color", "black");
+		illusButton.style("opacity", ".25");
+		illusButton.style("font-family", "Times New Roman");
+		illusButton.style("color", "white");
+		illusButton.style("font-size", "20px");
+		illusButton.style("border", "solid");
+		illusButton.style("border-color", "black");
+
+		graphButton = createButton("GRAPHIC DESIGN");
+		graphButton.mouseClicked(expandShelfTwo);
+		graphButton.size(width, y);
+		graphButton.position(0, 325);
+		graphButton.style("cursor", "pointer");
+		graphButton.style("background-color", "black");
+		graphButton.style("opacity", ".25");
+		graphButton.style("font-family", "Times New Roman");
+		graphButton.style("color", "white");
+		graphButton.style("font-size", "20px");
+		graphButton.style("border", "solid");
+		graphButton.style("border-color", "black");
 }
-
-// function windowResized() {
-//    resizeCanvas(window.innerWidth, window.innerHeight);
-// }
+}
