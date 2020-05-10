@@ -469,6 +469,9 @@ function expandShelfTwo() {
 	backButton.position(x - 670, y - 300);
 	backButton.style("cursor", "pointer");
 	backButton.style("background-color", "black");
+	backButton.style("font-family", "Times New Roman");
+	backButton.style("color", "white");
+	backButton.style("font-size", "20px");
 	backButton.style("border", "none");
 
 }
